@@ -1,16 +1,20 @@
 # GameLevels Blueprint
 Create a blueprint in *Godot Engine* to organize levels/rooms of a game and their interconnections. **Useful for metroidvanias or non-linear games.**
 
+![example](static/example.png)
+
 ## How to install
 Just copy "gamelevels_blueprint" folder in your addons folder and enable from project settings.
 
 ## How to use
 
-img editor modes
+![editormodes](static/editor modes.png)
 
-Once you have activated the plugin, a new button called LvlMap will appear at the top of the editor, from here you can access the blueprint.
+Once you have activated the plugin, a new button called **LvlMap** will appear at the top of the editor, from here you can access the blueprint.
 
 Buttons located at the top:
+
+![](static/topbar actions.png)
 
 1. About and Help button 2.
 2. Open a map file
