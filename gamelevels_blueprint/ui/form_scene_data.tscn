@@ -1,0 +1,224 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://addons/gamelevels_blueprint/ui/check_box_color.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/gamelevels_blueprint/ui/form_scene_data.gd" type="Script" id=2]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/open-folder-svgrepo-com.svg" type="Texture" id=3]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/save-svgrepo-com.svg" type="Texture" id=4]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/close-svgrepo-com.svg" type="Texture" id=5]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/return-svgrepo-com.svg" type="Texture" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0980392, 0.0941176, 0.152941, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="ButtonGroup" id=1]
+
+[node name="FormSceneData" type="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.741176 )
+
+[node name="BtnClose" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -278.0
+margin_top = -176.0
+margin_right = -225.0
+margin_bottom = -129.0
+custom_styles/focus = SubResource( 6 )
+icon = ExtResource( 6 )
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -211.0
+margin_top = -201.5
+margin_right = 211.0
+margin_bottom = 201.5
+grow_horizontal = 2
+grow_vertical = 2
+custom_styles/panel = SubResource( 4 )
+
+[node name="Margin" type="MarginContainer" parent="Panel"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 421.0
+margin_bottom = 402.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBx" type="VBoxContainer" parent="Panel/Margin"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 410.0
+margin_bottom = 391.0
+custom_constants/separation = 26
+
+[node name="HBxFilePath" type="VBoxContainer" parent="Panel/Margin/VBx"]
+margin_right = 400.0
+margin_bottom = 50.0
+
+[node name="Label" type="Label" parent="Panel/Margin/VBx/HBxFilePath"]
+margin_right = 400.0
+margin_bottom = 14.0
+text = "File Path"
+
+[node name="HBx" type="HBoxContainer" parent="Panel/Margin/VBx/HBxFilePath"]
+margin_top = 18.0
+margin_right = 400.0
+margin_bottom = 50.0
+custom_constants/separation = 9
+
+[node name="TxtFilePath" type="LineEdit" parent="Panel/Margin/VBx/HBxFilePath/HBx"]
+margin_right = 359.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="BtnExplore" type="Button" parent="Panel/Margin/VBx/HBxFilePath/HBx"]
+margin_left = 368.0
+margin_right = 400.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 5 )
+icon = ExtResource( 3 )
+
+[node name="HBxDescription" type="VBoxContainer" parent="Panel/Margin/VBx"]
+margin_top = 76.0
+margin_right = 400.0
+margin_bottom = 244.0
+
+[node name="Label" type="Label" parent="Panel/Margin/VBx/HBxDescription"]
+margin_right = 400.0
+margin_bottom = 14.0
+text = "Description (optional)"
+
+[node name="TextEdit" type="TextEdit" parent="Panel/Margin/VBx/HBxDescription"]
+margin_top = 18.0
+margin_right = 400.0
+margin_bottom = 168.0
+rect_min_size = Vector2( 0, 150 )
+wrap_enabled = true
+caret_blink = true
+
+[node name="HBxColors" type="VBoxContainer" parent="Panel/Margin/VBx"]
+margin_top = 270.0
+margin_right = 400.0
+margin_bottom = 320.0
+
+[node name="Label" type="Label" parent="Panel/Margin/VBx/HBxColors"]
+margin_right = 400.0
+margin_bottom = 14.0
+text = "Panel Color"
+
+[node name="Colors" type="HBoxContainer" parent="Panel/Margin/VBx/HBxColors"]
+margin_top = 18.0
+margin_right = 400.0
+margin_bottom = 50.0
+alignment = 1
+
+[node name="Color0" parent="Panel/Margin/VBx/HBxColors/Colors" instance=ExtResource( 1 )]
+margin_left = 76.0
+margin_right = 108.0
+group = SubResource( 1 )
+
+[node name="Color1" parent="Panel/Margin/VBx/HBxColors/Colors" instance=ExtResource( 1 )]
+margin_left = 112.0
+margin_right = 144.0
+group = SubResource( 1 )
+color = Color( 0.027451, 0.145098, 0.372549, 1 )
+
+[node name="Color2" parent="Panel/Margin/VBx/HBxColors/Colors" instance=ExtResource( 1 )]
+margin_left = 148.0
+margin_right = 180.0
+group = SubResource( 1 )
+color = Color( 0.333333, 0.0431373, 0.0431373, 1 )
+
+[node name="Color3" parent="Panel/Margin/VBx/HBxColors/Colors" instance=ExtResource( 1 )]
+margin_left = 184.0
+margin_right = 216.0
+group = SubResource( 1 )
+color = Color( 0.0156863, 0.243137, 0.0196078, 1 )
+
+[node name="Color4" parent="Panel/Margin/VBx/HBxColors/Colors" instance=ExtResource( 1 )]
+margin_left = 220.0
+margin_right = 252.0
+group = SubResource( 1 )
+color = Color( 0.305882, 0.286275, 0.0705882, 1 )
+
+[node name="Color5" parent="Panel/Margin/VBx/HBxColors/Colors" instance=ExtResource( 1 )]
+margin_left = 256.0
+margin_right = 288.0
+group = SubResource( 1 )
+color = Color( 0.27451, 0.0470588, 0.313726, 1 )
+
+[node name="Color6" parent="Panel/Margin/VBx/HBxColors/Colors" instance=ExtResource( 1 )]
+margin_left = 292.0
+margin_right = 324.0
+group = SubResource( 1 )
+color = Color( 0.0392157, 0.301961, 0.262745, 1 )
+
+[node name="HBxActions" type="HBoxContainer" parent="Panel/Margin/VBx"]
+margin_top = 346.0
+margin_right = 400.0
+margin_bottom = 381.0
+rect_min_size = Vector2( 0, 35 )
+custom_constants/separation = 19
+
+[node name="BtnSave" type="Button" parent="Panel/Margin/VBx/HBxActions"]
+margin_right = 190.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+text = "Save"
+icon = ExtResource( 4 )
+
+[node name="BtnDelete" type="Button" parent="Panel/Margin/VBx/HBxActions"]
+margin_left = 209.0
+margin_right = 400.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+text = "Delete"
+icon = ExtResource( 5 )
+
+[node name="FileDialog" type="FileDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -312.0
+margin_top = -176.0
+margin_right = 312.0
+margin_bottom = 176.0
+rect_pivot_offset = Vector2( 760, 204 )
+window_title = "Abrir un Archivo"
+dialog_hide_on_ok = true
+mode = 0
+filters = PoolStringArray( "*.tscn ; Godot Scenario" )
+
+[connection signal="pressed" from="BtnClose" to="." method="_on_BtnClose_pressed"]
+[connection signal="pressed" from="Panel/Margin/VBx/HBxFilePath/HBx/BtnExplore" to="." method="_on_BtnExplore_pressed"]
+[connection signal="pressed" from="Panel/Margin/VBx/HBxActions/BtnSave" to="." method="_on_BtnSave_pressed"]
+[connection signal="pressed" from="Panel/Margin/VBx/HBxActions/BtnDelete" to="." method="_on_BtnDelete_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]

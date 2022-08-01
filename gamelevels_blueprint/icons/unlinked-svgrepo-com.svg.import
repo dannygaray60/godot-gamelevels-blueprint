@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/unlinked-svgrepo-com.svg-93ab103176cd6bc189cdd6cae6d91a49.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://addons/gamelevels_blueprint/icons/unlinked-svgrepo-com.svg"
+dest_files=[ "res://.import/unlinked-svgrepo-com.svg-93ab103176cd6bc189cdd6cae6d91a49.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=true
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=true
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=0.4

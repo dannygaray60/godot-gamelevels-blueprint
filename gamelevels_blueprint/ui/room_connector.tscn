@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/gamelevels_blueprint/ui/room_connector.gd" type="Script" id=1]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/unlinked-svgrepo-com.svg" type="Texture" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.478431, 0.0196078, 0.0196078, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[node name="RoomConnector" type="GraphNode" groups=["room_connector"]]
+margin_right = 32.0
+margin_bottom = 32.0
+mouse_filter = 2
+custom_styles/frame = SubResource( 1 )
+custom_styles/selectedframe = SubResource( 1 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+
+[node name="Line2D" type="Line2D" parent="."]
+show_behind_parent = true
+points = PoolVector2Array( 0, 0, 0, 0 )
+width = 5.0
+default_color = Color( 1, 1, 1, 0.521569 )
+antialiased = true
+
+[node name="BtnDisconnect" type="Button" parent="."]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+mouse_default_cursor_shape = 2
+size_flags_vertical = 3
+custom_styles/focus = SubResource( 2 )
+icon = ExtResource( 2 )
+flat = true
+
+[connection signal="mouse_entered" from="BtnDisconnect" to="." method="_on_BtnDisconnect_mouse_entered"]
+[connection signal="mouse_exited" from="BtnDisconnect" to="." method="_on_BtnDisconnect_mouse_exited"]
+[connection signal="pressed" from="BtnDisconnect" to="." method="_on_BtnDisconnect_pressed"]

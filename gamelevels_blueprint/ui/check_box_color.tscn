@@ -1,0 +1,53 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://addons/gamelevels_blueprint/ui/check_box_color.gd" type="Script" id=1]
+
+[sub_resource type="ImageTexture" id=8]
+
+[sub_resource type="ImageTexture" id=9]
+
+[sub_resource type="ImageTexture" id=10]
+
+[sub_resource type="ImageTexture" id=1]
+
+[sub_resource type="ImageTexture" id=2]
+
+[sub_resource type="ImageTexture" id=3]
+
+[sub_resource type="ImageTexture" id=4]
+
+[sub_resource type="ImageTexture" id=5]
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[node name="CheckBox" type="CheckBox"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+custom_icons/radio_checked_disabled = SubResource( 8 )
+custom_icons/radio_checked = SubResource( 9 )
+custom_icons/checked_disabled = SubResource( 10 )
+custom_icons/radio_unchecked_disabled = SubResource( 1 )
+custom_icons/checked = SubResource( 2 )
+custom_icons/radio_unchecked = SubResource( 3 )
+custom_icons/unchecked_disabled = SubResource( 4 )
+custom_icons/unchecked = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+script = ExtResource( 1 )
+
+[node name="CurrentColor" type="ColorRect" parent="."]
+show_behind_parent = true
+margin_right = 30.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
