@@ -1,10 +1,24 @@
 # GameLevels Blueprint
 Create a blueprint in *Godot Engine* to organize levels/rooms of a game and their interconnections. **Useful for metroidvanias or non-linear games.**
 
+***
+
+I made this plugin in order to have a direct access to the scenarios [of my metroidvania game](https://dannygaray60.github.io/tn-oota.html). With this blueprint I can organize the scenarios and see where they should connect to.
+
+**This blueprint has no functions beyond a visual representation of the general map of a game.**
+
+***
+
 ![](static/example.png)
 
 # How to install
 Just copy "gamelevels_blueprint" folder in your addons folder and enable from project settings.
+
+***
+
+### Working in Godot Engine 3.4.4
+
+***
 
 # How to use
 
@@ -78,3 +92,19 @@ Each added scenario will show three buttons:
 You can save the blueprint in a lvlmap file. And work with several at the same time:
 
 ![](https://github.com/dannygaray60/godot-gamelevels-blueprint/blob/main/static/save%20map.png)
+
+***
+
+# Credits
+
+This plugin was made by [Danny Garay](https://twitter.com/dannygaray60)
+
+**Icons made by svgrepo.com**
+
+Website
+[https://dannygaray60.github.io/](https://dannygaray60.github.io/)
+
+Email: [dannygaray60@gmail.com](mailto:dannygaray60@gmail.com)
+
+Support me with a donation here
+[https://ko-fi.com/dannygaray60](https://ko-fi.com/dannygaray60)
