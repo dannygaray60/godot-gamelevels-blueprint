@@ -36,6 +36,6 @@ func drop_data(position, data):
 	
 	emit_signal("scene_dropped", filepath, offset)
 
-func remove_node() -> void:
-	remove_from_group("graph_edit")
-	queue_free()
+#func remove_node() -> void:
+#	remove_from_group("graph_edit")
+#	queue_free()

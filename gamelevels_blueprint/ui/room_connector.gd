@@ -45,14 +45,14 @@ func make_connections() -> void:
 func focus_line() -> void:
 	_original_line_color = $Line2D.default_color
 	$Line2D.default_color = Color("16c4c8")
-	$Line2D.width = 5
+	$Line2D.width = 8
 	$BtnDisconnect.disabled = false
 	self_modulate.a = 1
 	$BtnDisconnect.self_modulate.a = 1
 
 func unfocus_line() -> void:
 	$Line2D.default_color = Color("85ffffff")
-	$Line2D.width = 2
+	$Line2D.width = 4
 	$BtnDisconnect.disabled = true
 	self_modulate.a = 0
 	$BtnDisconnect.self_modulate.a = 0

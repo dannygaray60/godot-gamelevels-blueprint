@@ -1,10 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://addons/gamelevels_blueprint/ui/room_connector.gd" type="Script" id=1]
 [ext_resource path="res://addons/gamelevels_blueprint/icons/unlinked-svgrepo-com.svg" type="Texture" id=2]
+[ext_resource path="res://addons/gamelevels_blueprint/img/line.png" type="Texture" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.478431, 0.0196078, 0.0196078, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -25,8 +30,10 @@ script = ExtResource( 1 )
 [node name="Line2D" type="Line2D" parent="."]
 show_behind_parent = true
 points = PoolVector2Array( 0, 0, 0, 0 )
-width = 5.0
+width = 4.0
 default_color = Color( 1, 1, 1, 0.521569 )
+texture = ExtResource( 3 )
+texture_mode = 1
 antialiased = true
 
 [node name="BtnDisconnect" type="Button" parent="."]

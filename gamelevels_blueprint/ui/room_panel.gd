@@ -54,11 +54,13 @@ func update_data() -> void:
 	if file.file_exists(file_path) == false:
 		$VBoxContainer/Label.text = "(!) "+ $VBoxContainer/Label.text
 		$VBoxContainer/HBoxContainer/BtnGoTo.disabled = true
+		$VBoxContainer/HBoxContainer/BtnPlay.disabled = true
 		$VBoxContainer/HBoxContainer/BtnCopyPath.disabled = true
 	
 	## el archivo existe
 	else:
 		$VBoxContainer/HBoxContainer/BtnGoTo.disabled = false
+		$VBoxContainer/HBoxContainer/BtnPlay.disabled = false
 		$VBoxContainer/HBoxContainer/BtnCopyPath.disabled = false
 	
 		## establecer el tipo de escenario, si es 2D o 3D
@@ -77,11 +79,19 @@ func _set_panel_color(clr:Color) -> void:
 	var duplicate_style = get_stylebox("frame").duplicate()
 	duplicate_style.bg_color = clr
 	add_stylebox_override("frame", duplicate_style)
+	## poner color tambien al frame selected
+	duplicate_style = get_stylebox("selectedframe").duplicate()
+	duplicate_style.bg_color = clr
+	add_stylebox_override("selectedframe", duplicate_style)
 
 ## abrir archivo de escenario en el editor a partir del filepath
 ## usar la funcion open_scene del dock (accediendo gracias a get_parent)
 func _on_BtnGoTo_pressed() -> void:
 	get_dock().open_scene(file_path, scene_type)
+
+## reproducir escena sin necesidad de abrir archivo
+func _on_BtnPlay_pressed() -> void:
+	get_dock().play_scene(file_path)
 
 ## al entrar en focus, mandar al dock una notificacion mostrando la descripcion
 func _on_RoomPanel_focus_entered() -> void:
@@ -91,11 +101,11 @@ func _on_RoomPanel_focus_entered() -> void:
 ## ocultar la notificacion
 func _on_RoomPanel_focus_exited() -> void:
 	get_dock().hide_notif()
+	
 
 func _on_BtnCopyPath_pressed() -> void:
 	OS.set_clipboard(file_path)
 	#OS.alert("The path: %s was copied to clipboard!"%[file_path], "File path copied!")
-
 
 func _on_BtnEdit_pressed() -> void:
 	emit_signal("edit_request", self)

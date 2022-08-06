@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://addons/gamelevels_blueprint/tres/font_bold.tres" type="DynamicFont" id=1]
 [ext_resource path="res://addons/gamelevels_blueprint/icons/external-link-svgrepo-com.svg" type="Texture" id=2]
 [ext_resource path="res://addons/gamelevels_blueprint/icons/copy-svgrepo-com.svg" type="Texture" id=3]
 [ext_resource path="res://addons/gamelevels_blueprint/icons/edit-svgrepo-com.svg" type="Texture" id=4]
 [ext_resource path="res://addons/gamelevels_blueprint/ui/room_panel.gd" type="Script" id=5]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/play-svgrepo-com.svg" type="Texture" id=6]
 
 [sub_resource type="StyleBoxFlat" id=5]
 content_margin_left = 10.0
@@ -26,7 +27,9 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color( 1, 1, 1, 1 )
+border_color = Color( 1, 0.545098, 0.545098, 1 )
+shadow_color = Color( 1, 0, 0, 0.6 )
+shadow_size = 23
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -35,7 +38,7 @@ border_color = Color( 1, 1, 1, 1 )
 [node name="RoomPanel" type="GraphNode" groups=["room_panel"]]
 margin_right = 189.0
 margin_bottom = 69.0
-focus_mode = 1
+focus_mode = 2
 mouse_default_cursor_shape = 13
 custom_styles/frame = SubResource( 5 )
 custom_styles/selectedframe = SubResource( 7 )
@@ -50,22 +53,21 @@ script = ExtResource( 5 )
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 10.0
 margin_top = 5.0
-margin_right = 179.0
+margin_right = 233.0
 margin_bottom = 68.0
 custom_constants/separation = -4
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 169.0
+margin_right = 223.0
 margin_bottom = 27.0
 custom_fonts/font = ExtResource( 1 )
 text = "Room FileName"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_left = 3.0
 margin_top = 23.0
-margin_right = 165.0
+margin_right = 223.0
 margin_bottom = 63.0
 size_flags_horizontal = 4
 custom_constants/separation = 21
@@ -80,9 +82,20 @@ custom_styles/focus = SubResource( 2 )
 icon = ExtResource( 2 )
 flat = true
 
-[node name="BtnEdit" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="BtnPlay" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_left = 61.0
 margin_right = 101.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+hint_tooltip = "Play this scene"
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 2 )
+icon = ExtResource( 6 )
+flat = true
+
+[node name="BtnEdit" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 122.0
+margin_right = 162.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 hint_tooltip = "Edit this panel"
@@ -92,8 +105,8 @@ icon = ExtResource( 4 )
 flat = true
 
 [node name="BtnCopyPath" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 122.0
-margin_right = 162.0
+margin_left = 183.0
+margin_right = 223.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 hint_tooltip = "Copy the scene path to clipboard"
@@ -103,5 +116,6 @@ icon = ExtResource( 3 )
 flat = true
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnGoTo" to="." method="_on_BtnGoTo_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnPlay" to="." method="_on_BtnPlay_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnEdit" to="." method="_on_BtnEdit_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnCopyPath" to="." method="_on_BtnCopyPath_pressed"]

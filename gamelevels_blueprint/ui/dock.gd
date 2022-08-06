@@ -4,6 +4,8 @@ extends Control
 var room_panel = load("res://addons/gamelevels_blueprint/ui/room_panel.tscn")
 var room_connector = load("res://addons/gamelevels_blueprint/ui/room_connector.tscn")
 
+var interface
+
 ## modo de edicion
 ## 0:normal, 1:conectar rooms
 var _edit_mode : int = 0
@@ -17,11 +19,11 @@ var _rooms_to_connect : Array
 func _ready() -> void:
 	$PanelFileMapNameOpened.visible = false
 	$PanelToolBar/MarginContainer/HBx/HBxActions/BtnCancelLink.visible = false
+	## obtener acceso al editor interface (definido en plugin.gd)
+	interface = get_tree().get_meta("editor_interface")
 
 ## abrir archivo de escenario en el editor a partir del filepath
 func open_scene(file_path, scene_type) -> void:
-	## obtener acceso al editor interface (definido en plugin.gd)
-	var interface = get_tree().get_meta("editor_interface")
 	## cambiar el modo de visualizacion en el editor
 	if scene_type == 0:
 		interface.set_main_screen_editor("2D")
@@ -29,6 +31,11 @@ func open_scene(file_path, scene_type) -> void:
 		interface.set_main_screen_editor("3D")
 	## abrir escenario
 	interface.open_scene_from_path(file_path)
+
+## ejecutar archivo de escenario
+func play_scene(file_path) -> void:
+	## abrir escenario
+	interface.play_custom_scene(file_path)
 
 func show_notif(txt:String="Hello, this is a Notification!", hide_time:int=0) -> void:
 	
