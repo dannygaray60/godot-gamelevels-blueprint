@@ -75,11 +75,11 @@ Each added scenario will show four buttons:
 
 ![](https://github.com/dannygaray60/godot-gamelevels-blueprint/blob/main/static/scenario%20actions.png)
 
-1. The first one will open the scenario in the editor (think of this as a shortcut). 
+1. The first one will open the scenario in the editor (think of this as a shortcut).
 
-2. The second one will open the editor panel.
+2. The second one will play the scene.
 
-3. The third one will play the scene.
+3. The third one will open the editor panel.
 
 4. And the fourth button will copy the scenario path to the clipboard.
 
