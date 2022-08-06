@@ -71,7 +71,7 @@ When you select a scene, the lines that are connected will show a button with wh
 
 ***
 
-Each added scenario will show three buttons:
+Each added scenario will show four buttons:
 
 ![](https://github.com/dannygaray60/godot-gamelevels-blueprint/blob/main/static/scenario%20actions.png)
 
@@ -79,7 +79,9 @@ Each added scenario will show three buttons:
 
 2. The second one will open the editor panel.
 
-3. And the third button will copy the scenario path to the clipboard.
+3. The third one will play the scene.
+
+4. And the fourth button will copy the scenario path to the clipboard.
 
 ***
 
