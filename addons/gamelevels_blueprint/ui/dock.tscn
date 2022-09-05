@@ -19,7 +19,7 @@
 [sub_resource type="Theme" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0, 0, 0, 0.388235 )
+bg_color = Color( 0, 0, 0, 0.313726 )
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -57,11 +57,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource( 5 )
 script = ExtResource( 4 )
-
-[node name="ColorRect" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.34902, 0.447059, 0.560784, 1 )
 
 [node name="PanelToolBar" type="PanelContainer" parent="."]
 anchor_right = 1.0

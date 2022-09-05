@@ -12,11 +12,11 @@ I made this plugin in order to have a direct access to the scenarios [of my metr
 ![](static/example.png)
 
 # How to install
-Just copy "gamelevels_blueprint" folder in your addons folder and enable from project settings.
+Just copy "addons/gamelevels_blueprint" folder in your own addons folder and enable from project settings.
 
 ***
 
-### Working in Godot Engine 3.4.4
+### Working in Godot Engine 3.4.x and 3.5.x
 
 ***
 
