@@ -10,6 +10,8 @@ var file_path : String
 var description : String
 var color_panel : Color
 
+var icons : Dictionary
+
 func _enter_tree() -> void:
 	## conectar señales manualmente y evitar el error de is signal already connected
 	if is_connected("raise_request", get_dock(), "_on_RoomPanel_raise_request") == false:
@@ -74,6 +76,22 @@ func update_data() -> void:
 	
 	## actualizar hint con la descripcion
 	hint_tooltip = description
+	
+	## ocultar iconos o mostrarlos segun configuracion
+	var icons_keys : Array = icons.keys()
+	var icons_visible_count : int = 0
+	for icn_check in get_node("%HBxTopIcons").get_children():
+		if icons_keys.has(icn_check.name):
+			icn_check.visible = icons[icn_check.name]
+			if icn_check.visible == true:
+				icons_visible_count += 1
+		else:
+			icn_check.visible = false
+
+	if icons_visible_count > 0 :
+		get_node("%TopPanelIcons").visible = true
+	else:
+		get_node("%TopPanelIcons").visible = false
 
 func _set_panel_color(clr:Color) -> void:
 	var duplicate_style = get_stylebox("frame").duplicate()
@@ -83,6 +101,11 @@ func _set_panel_color(clr:Color) -> void:
 	duplicate_style = get_stylebox("selectedframe").duplicate()
 	duplicate_style.bg_color = clr
 	add_stylebox_override("selectedframe", duplicate_style)
+	
+	## Colocar color tambien al panel superior de iconos
+	duplicate_style = get_node("%TopPanelIcons").get_stylebox("panel").duplicate()
+	duplicate_style.bg_color = clr
+	get_node("%TopPanelIcons").add_stylebox_override("panel", duplicate_style)
 
 ## abrir archivo de escenario en el editor a partir del filepath
 ## usar la funcion open_scene del dock (accediendo gracias a get_parent)

@@ -3,7 +3,7 @@
 [ext_resource path="res://addons/gamelevels_blueprint/ui/check_box_color.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/gamelevels_blueprint/ui/form_scene_data.gd" type="Script" id=2]
 [ext_resource path="res://addons/gamelevels_blueprint/icons/open-folder-svgrepo-com.svg" type="Texture" id=3]
-[ext_resource path="res://addons/gamelevels_blueprint/icons/save-svgrepo-com.svg" type="Texture" id=4]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/edit-svgrepo-com.svg" type="Texture" id=4]
 [ext_resource path="res://addons/gamelevels_blueprint/icons/close-svgrepo-com.svg" type="Texture" id=5]
 [ext_resource path="res://addons/gamelevels_blueprint/icons/return-svgrepo-com.svg" type="Texture" id=6]
 
@@ -22,6 +22,7 @@ border_color = Color( 1, 1, 1, 1 )
 [sub_resource type="ButtonGroup" id=1]
 
 [node name="FormSceneData" type="Popup"]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
@@ -36,10 +37,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -278.0
-margin_top = -176.0
-margin_right = -225.0
-margin_bottom = -129.0
+margin_left = -416.0
+margin_top = -228.0
+margin_right = -363.0
+margin_bottom = -181.0
 custom_styles/focus = SubResource( 6 )
 icon = ExtResource( 6 )
 
@@ -48,10 +49,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -211.0
-margin_top = -201.5
-margin_right = 211.0
-margin_bottom = 201.5
+margin_left = -345.0
+margin_top = -263.5
+margin_right = 345.0
+margin_bottom = 263.5
 grow_horizontal = 2
 grow_vertical = 2
 custom_styles/panel = SubResource( 4 )
@@ -59,8 +60,8 @@ custom_styles/panel = SubResource( 4 )
 [node name="Margin" type="MarginContainer" parent="Panel"]
 margin_left = 1.0
 margin_top = 1.0
-margin_right = 421.0
-margin_bottom = 402.0
+margin_right = 689.0
+margin_bottom = 526.0
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
@@ -69,27 +70,27 @@ custom_constants/margin_bottom = 10
 [node name="VBx" type="VBoxContainer" parent="Panel/Margin"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 410.0
-margin_bottom = 391.0
+margin_right = 678.0
+margin_bottom = 515.0
 custom_constants/separation = 26
 
 [node name="HBxFilePath" type="VBoxContainer" parent="Panel/Margin/VBx"]
-margin_right = 400.0
+margin_right = 668.0
 margin_bottom = 50.0
 
 [node name="Label" type="Label" parent="Panel/Margin/VBx/HBxFilePath"]
-margin_right = 400.0
+margin_right = 668.0
 margin_bottom = 14.0
 text = "File Path"
 
 [node name="HBx" type="HBoxContainer" parent="Panel/Margin/VBx/HBxFilePath"]
 margin_top = 18.0
-margin_right = 400.0
+margin_right = 668.0
 margin_bottom = 50.0
 custom_constants/separation = 9
 
 [node name="TxtFilePath" type="LineEdit" parent="Panel/Margin/VBx/HBxFilePath/HBx"]
-margin_right = 359.0
+margin_right = 627.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 editable = false
@@ -97,8 +98,8 @@ caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="BtnExplore" type="Button" parent="Panel/Margin/VBx/HBxFilePath/HBx"]
-margin_left = 368.0
-margin_right = 400.0
+margin_left = 636.0
+margin_right = 668.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
 mouse_default_cursor_shape = 2
@@ -107,17 +108,17 @@ icon = ExtResource( 3 )
 
 [node name="HBxDescription" type="VBoxContainer" parent="Panel/Margin/VBx"]
 margin_top = 76.0
-margin_right = 400.0
+margin_right = 668.0
 margin_bottom = 244.0
 
 [node name="Label" type="Label" parent="Panel/Margin/VBx/HBxDescription"]
-margin_right = 400.0
+margin_right = 668.0
 margin_bottom = 14.0
 text = "Description (optional)"
 
 [node name="TextEdit" type="TextEdit" parent="Panel/Margin/VBx/HBxDescription"]
 margin_top = 18.0
-margin_right = 400.0
+margin_right = 668.0
 margin_bottom = 168.0
 rect_min_size = Vector2( 0, 150 )
 wrap_enabled = true
@@ -125,78 +126,228 @@ caret_blink = true
 
 [node name="HBxColors" type="VBoxContainer" parent="Panel/Margin/VBx"]
 margin_top = 270.0
-margin_right = 400.0
+margin_right = 668.0
 margin_bottom = 320.0
 
 [node name="Label" type="Label" parent="Panel/Margin/VBx/HBxColors"]
-margin_right = 400.0
+margin_right = 668.0
 margin_bottom = 14.0
 text = "Panel Color"
 
 [node name="Colors" type="HBoxContainer" parent="Panel/Margin/VBx/HBxColors"]
 margin_top = 18.0
-margin_right = 400.0
+margin_right = 668.0
 margin_bottom = 50.0
 alignment = 1
 
 [node name="Color0" parent="Panel/Margin/VBx/HBxColors/Colors" instance=ExtResource( 1 )]
-margin_left = 76.0
-margin_right = 108.0
+margin_left = 210.0
+margin_right = 242.0
 group = SubResource( 1 )
 
 [node name="Color1" parent="Panel/Margin/VBx/HBxColors/Colors" instance=ExtResource( 1 )]
-margin_left = 112.0
-margin_right = 144.0
+margin_left = 246.0
+margin_right = 278.0
 group = SubResource( 1 )
 color = Color( 0.027451, 0.145098, 0.372549, 1 )
 
 [node name="Color2" parent="Panel/Margin/VBx/HBxColors/Colors" instance=ExtResource( 1 )]
-margin_left = 148.0
-margin_right = 180.0
+margin_left = 282.0
+margin_right = 314.0
 group = SubResource( 1 )
 color = Color( 0.333333, 0.0431373, 0.0431373, 1 )
 
 [node name="Color3" parent="Panel/Margin/VBx/HBxColors/Colors" instance=ExtResource( 1 )]
-margin_left = 184.0
-margin_right = 216.0
+margin_left = 318.0
+margin_right = 350.0
 group = SubResource( 1 )
 color = Color( 0.0156863, 0.243137, 0.0196078, 1 )
 
 [node name="Color4" parent="Panel/Margin/VBx/HBxColors/Colors" instance=ExtResource( 1 )]
-margin_left = 220.0
-margin_right = 252.0
+margin_left = 354.0
+margin_right = 386.0
 group = SubResource( 1 )
 color = Color( 0.305882, 0.286275, 0.0705882, 1 )
 
 [node name="Color5" parent="Panel/Margin/VBx/HBxColors/Colors" instance=ExtResource( 1 )]
-margin_left = 256.0
-margin_right = 288.0
+margin_left = 390.0
+margin_right = 422.0
 group = SubResource( 1 )
 color = Color( 0.27451, 0.0470588, 0.313726, 1 )
 
 [node name="Color6" parent="Panel/Margin/VBx/HBxColors/Colors" instance=ExtResource( 1 )]
-margin_left = 292.0
-margin_right = 324.0
+margin_left = 426.0
+margin_right = 458.0
 group = SubResource( 1 )
 color = Color( 0.0392157, 0.301961, 0.262745, 1 )
 
-[node name="HBxActions" type="HBoxContainer" parent="Panel/Margin/VBx"]
+[node name="VBxIcons" type="VBoxContainer" parent="Panel/Margin/VBx"]
 margin_top = 346.0
-margin_right = 400.0
-margin_bottom = 381.0
+margin_right = 668.0
+margin_bottom = 444.0
+
+[node name="Label" type="Label" parent="Panel/Margin/VBx/VBxIcons"]
+margin_right = 668.0
+margin_bottom = 14.0
+text = "Icons"
+
+[node name="ChecksIcons" type="HFlowContainer" parent="Panel/Margin/VBx/VBxIcons"]
+unique_name_in_owner = true
+margin_top = 18.0
+margin_right = 668.0
+margin_bottom = 98.0
+
+[node name="info" type="CheckBox" parent="Panel/Margin/VBx/VBxIcons/ChecksIcons"]
+margin_right = 53.0
+margin_bottom = 24.0
+focus_mode = 0
+text = "Info"
+
+[node name="save" type="CheckBox" parent="Panel/Margin/VBx/VBxIcons/ChecksIcons"]
+margin_left = 57.0
+margin_right = 114.0
+margin_bottom = 24.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Save"
+
+[node name="skill" type="CheckBox" parent="Panel/Margin/VBx/VBxIcons/ChecksIcons"]
+margin_left = 118.0
+margin_right = 172.0
+margin_bottom = 24.0
+focus_mode = 0
+text = "Skill"
+
+[node name="key" type="CheckBox" parent="Panel/Margin/VBx/VBxIcons/ChecksIcons"]
+margin_left = 176.0
+margin_right = 227.0
+margin_bottom = 24.0
+focus_mode = 0
+text = "Key"
+
+[node name="teleport" type="CheckBox" parent="Panel/Margin/VBx/VBxIcons/ChecksIcons"]
+margin_left = 231.0
+margin_right = 385.0
+margin_bottom = 24.0
+focus_mode = 0
+text = "Teleport/Fast Travel"
+
+[node name="text" type="CheckBox" parent="Panel/Margin/VBx/VBxIcons/ChecksIcons"]
+margin_left = 389.0
+margin_right = 481.0
+margin_bottom = 24.0
+focus_mode = 0
+text = "Story/Text"
+
+[node name="boss" type="CheckBox" parent="Panel/Margin/VBx/VBxIcons/ChecksIcons"]
+margin_left = 485.0
+margin_right = 544.0
+margin_bottom = 24.0
+focus_mode = 0
+text = "Boss"
+
+[node name="entrance" type="CheckBox" parent="Panel/Margin/VBx/VBxIcons/ChecksIcons"]
+margin_left = 548.0
+margin_right = 664.0
+margin_bottom = 24.0
+focus_mode = 0
+text = "Area Entrance"
+
+[node name="equipment" type="CheckBox" parent="Panel/Margin/VBx/VBxIcons/ChecksIcons"]
+margin_top = 28.0
+margin_right = 97.0
+margin_bottom = 52.0
+focus_mode = 0
+text = "Equipment"
+
+[node name="levelup" type="CheckBox" parent="Panel/Margin/VBx/VBxIcons/ChecksIcons"]
+margin_left = 101.0
+margin_top = 28.0
+margin_right = 181.0
+margin_bottom = 52.0
+focus_mode = 0
+text = "LevelUp"
+
+[node name="puzzle" type="CheckBox" parent="Panel/Margin/VBx/VBxIcons/ChecksIcons"]
+margin_left = 185.0
+margin_top = 28.0
+margin_right = 255.0
+margin_bottom = 52.0
+focus_mode = 0
+text = "Puzzle"
+
+[node name="upgrade" type="CheckBox" parent="Panel/Margin/VBx/VBxIcons/ChecksIcons"]
+margin_left = 259.0
+margin_top = 28.0
+margin_right = 340.0
+margin_bottom = 52.0
+focus_mode = 0
+text = "Upgrade"
+
+[node name="material" type="CheckBox" parent="Panel/Margin/VBx/VBxIcons/ChecksIcons"]
+margin_left = 344.0
+margin_top = 28.0
+margin_right = 424.0
+margin_bottom = 52.0
+focus_mode = 0
+text = "Material"
+
+[node name="secret_area" type="CheckBox" parent="Panel/Margin/VBx/VBxIcons/ChecksIcons"]
+margin_left = 428.0
+margin_top = 28.0
+margin_right = 529.0
+margin_bottom = 52.0
+focus_mode = 0
+text = "Secret Area"
+
+[node name="treasure" type="CheckBox" parent="Panel/Margin/VBx/VBxIcons/ChecksIcons"]
+margin_left = 533.0
+margin_top = 28.0
+margin_right = 616.0
+margin_bottom = 52.0
+focus_mode = 0
+text = "Treasure"
+
+[node name="cinematic" type="CheckBox" parent="Panel/Margin/VBx/VBxIcons/ChecksIcons"]
+margin_top = 56.0
+margin_right = 92.0
+margin_bottom = 80.0
+focus_mode = 0
+text = "Cinematic"
+
+[node name="easter_egg" type="CheckBox" parent="Panel/Margin/VBx/VBxIcons/ChecksIcons"]
+margin_left = 96.0
+margin_top = 56.0
+margin_right = 188.0
+margin_bottom = 80.0
+focus_mode = 0
+text = "Easter Egg"
+
+[node name="farm" type="CheckBox" parent="Panel/Margin/VBx/VBxIcons/ChecksIcons"]
+margin_left = 192.0
+margin_top = 56.0
+margin_right = 252.0
+margin_bottom = 80.0
+focus_mode = 0
+text = "Farm"
+
+[node name="HBxActions" type="HBoxContainer" parent="Panel/Margin/VBx"]
+margin_top = 470.0
+margin_right = 668.0
+margin_bottom = 505.0
 rect_min_size = Vector2( 0, 35 )
 custom_constants/separation = 19
 
 [node name="BtnSave" type="Button" parent="Panel/Margin/VBx/HBxActions"]
-margin_right = 190.0
+margin_right = 324.0
 margin_bottom = 35.0
 size_flags_horizontal = 3
-text = "Save"
+text = "Update"
 icon = ExtResource( 4 )
 
 [node name="BtnDelete" type="Button" parent="Panel/Margin/VBx/HBxActions"]
-margin_left = 209.0
-margin_right = 400.0
+margin_left = 343.0
+margin_right = 668.0
 margin_bottom = 35.0
 size_flags_horizontal = 3
 text = "Delete"
@@ -212,7 +363,7 @@ margin_top = -176.0
 margin_right = 312.0
 margin_bottom = 176.0
 rect_pivot_offset = Vector2( 760, 204 )
-window_title = "Abrir un Archivo"
+window_title = "Open a File"
 dialog_hide_on_ok = true
 mode = 0
 filters = PoolStringArray( "*.tscn ; Godot Scenario" )

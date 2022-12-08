@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/jigsaw-piece.png-eb87b2a2de7af5a00c8152fd492e4f22.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://addons/gamelevels_blueprint/icons/metroidvania_icons/jigsaw-piece.png"
+dest_files=[ "res://.import/jigsaw-piece.png-eb87b2a2de7af5a00c8152fd492e4f22.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

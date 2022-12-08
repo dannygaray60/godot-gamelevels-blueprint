@@ -14,5 +14,8 @@ export_presets.cfg
 data_*/
 mono_crash.*.json
 
+# Addon config
+addons/gamelevels_blueprint/conf.ini
+
 # Third-party addons
-addons/godot-plugin-refresher/
+# addons/godot-plugin-refresher/

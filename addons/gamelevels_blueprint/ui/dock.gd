@@ -4,6 +4,8 @@ extends Control
 var room_panel = load("res://addons/gamelevels_blueprint/ui/room_panel.tscn")
 var room_connector = load("res://addons/gamelevels_blueprint/ui/room_connector.tscn")
 
+var button_recent_file = preload("res://addons/gamelevels_blueprint/ui/button_recent_file.tscn")
+
 ## modo de edicion
 ## 0:normal, 1:conectar rooms
 var _edit_mode : int = 0
@@ -14,9 +16,18 @@ var _opened_map : String = ""
 ## lista de nodos (solo el path) para conectar entre sí
 var _rooms_to_connect : Array
 
+var f := File.new()
+var Conf := ConfigFile.new()
+
+var _configfile_path : String = "res://addons/gamelevels_blueprint/conf.ini"
+
 func _ready() -> void:
+	Conf.load(_configfile_path)
+	
 	$PanelFileMapNameOpened.visible = false
 	$PanelToolBar/MarginContainer/HBx/HBxActions/BtnCancelLink.visible = false
+
+	_show_recent_list()
 
 ## abrir archivo de escenario en el editor a partir del filepath
 func open_scene(file_path, scene_type) -> void:
@@ -96,6 +107,7 @@ func save_map() -> void:
 					"description": rp.description,
 					"color_panel": rp.color_panel,
 					"offset": rp.offset,
+					"icons": rp.icons,
 				}
 			)
 	## guardar solo los nombres de los path a que apuntan
@@ -135,6 +147,8 @@ func save_map() -> void:
 func open_map() -> void:
 	
 	clean_graph_edit()
+	get_node("%RecenListControl").visible = false
+	get_node("%BtnOpenRecentFiles").visible = false
 	
 	var file := File.new()
 	var data_to_load : Dictionary
@@ -163,6 +177,40 @@ func open_map() -> void:
 	
 	$PanelFileMapNameOpened/HBx/Lbl.text = _opened_map.get_file().replace(".lvlmap", "")
 	$PanelFileMapNameOpened.visible = true
+	
+	## añadir a lista de archivos recientes
+	var recent_list : Array = Conf.get_value("main", "recent_list", [])
+	if recent_list.has(_opened_map):
+		recent_list.erase(_opened_map)
+	recent_list.push_front(_opened_map)
+	## guardar
+	Conf.set_value("main", "recent_list", recent_list)
+	Conf.save(_configfile_path)
+
+
+func _show_recent_list() -> void:
+	
+	## limpieza
+	for n in get_node("%VBxRecentFiles").get_children():
+		n.queue_free()
+	
+	var recent_file_count : int = 0
+	## mostrar lista de recientes
+	var recent_list : Array = Conf.get_value("main", "recent_list", [])
+	if recent_list.empty() == false:
+		for file in recent_list:
+			if f.file_exists(file):
+				var Btn = button_recent_file.instance()
+				Btn.f_path = file
+				get_node("%VBxRecentFiles").add_child(Btn)
+				Btn.connect("open_item", self, "_on_RecentFile_opened")
+				Btn.connect("delete_item", self, "_on_RecentFile_deleted", [Btn.get_path()])
+				recent_file_count += 1
+	
+	if recent_file_count > 0:
+		get_node("%RecenListControl").visible = true
+	else:
+		get_node("%RecenListControl").visible = false
 
 ## cargar un nuevo room panel al tree
 func _add_room_panel(room_data:Dictionary) -> void:
@@ -183,6 +231,9 @@ func _add_room_panel(room_data:Dictionary) -> void:
 		room_panel_instance.color_panel = room_data["color_panel"]
 	if room_data_keys.has("offset"):
 		room_panel_instance.offset = room_data["offset"]
+	if room_data_keys.has("icons"):
+		room_panel_instance.icons = room_data["icons"]
+	
 	
 	## conectar señales del panel
 	room_panel_instance.connect("edit_request", self, "_on_RoomPanel_edit_request")
@@ -224,6 +275,8 @@ func _tween_notif(from:Color, to:Color) -> void:
 ## el graphedit ha recibido un archivo de escenario
 func _on_GraphEdit_scene_dropped(filepath, node_position) -> void:
 	
+	get_node("%BtnOpenRecentFiles").visible = false
+	
 	var room_panel_instance = room_panel.instance()
 	
 	var room_panel_data : Dictionary = {
@@ -232,6 +285,22 @@ func _on_GraphEdit_scene_dropped(filepath, node_position) -> void:
 	}
 	
 	_add_room_panel(room_panel_data)
+
+## se clickeo un boton de la lista de archivos recientes
+func _on_RecentFile_opened(f_path:String) -> void:
+	_opened_map = f_path
+	open_map()
+
+func _on_RecentFile_deleted(f_path:String, node_path:NodePath) -> void:
+	## remover de lista de archivos recientes
+	var recent_list : Array = Conf.get_value("main", "recent_list", [])
+	if recent_list.has(f_path):
+		recent_list.erase(f_path)
+	## guardar
+	Conf.set_value("main", "recent_list", recent_list)
+	Conf.save(_configfile_path)
+	## liberar nodo
+	get_node(node_path).queue_free()
 
 func _on_RoomPanel_edit_request(room: Object) -> void:
 	$FormSceneData.set_data(room)
@@ -312,6 +381,7 @@ func _on_BtnClose_pressed() -> void:
 	$PanelFileMapNameOpened.visible = false
 	_opened_map = ""
 	clean_graph_edit()
+	get_node("%BtnOpenRecentFiles").visible = true
 
 func _on_BtnOpen_pressed() -> void:
 	$FileDialogOpenMap.popup_centered()
@@ -370,3 +440,11 @@ func _on_BtnHowToUse_pressed() -> void:
 
 func _on_BtnGithubRepo_pressed() -> void:
 	OS.shell_open("https://github.com/dannygaray60/godot-gamelevels-blueprint")
+
+
+func _on_BtnCloseRecenList_pressed() -> void:
+	get_node("%RecenListControl").visible = false
+
+
+func _on_BtnOpenRecentFiles_pressed() -> void:
+	_show_recent_list()

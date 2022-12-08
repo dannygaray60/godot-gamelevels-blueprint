@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://addons/gamelevels_blueprint/tres/font_bold.tres" type="DynamicFont" id=1]
 [ext_resource path="res://addons/gamelevels_blueprint/icons/external-link-svgrepo-com.svg" type="Texture" id=2]
@@ -6,6 +6,24 @@
 [ext_resource path="res://addons/gamelevels_blueprint/icons/edit-svgrepo-com.svg" type="Texture" id=4]
 [ext_resource path="res://addons/gamelevels_blueprint/ui/room_panel.gd" type="Script" id=5]
 [ext_resource path="res://addons/gamelevels_blueprint/icons/play-svgrepo-com.svg" type="Texture" id=6]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/metroidvania_icons/upgrade.png" type="Texture" id=7]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/metroidvania_icons/key.png" type="Texture" id=8]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/metroidvania_icons/liberty-wing.png" type="Texture" id=9]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/metroidvania_icons/jigsaw-piece.png" type="Texture" id=10]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/metroidvania_icons/teleport.png" type="Texture" id=11]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/metroidvania_icons/clapperboard.png" type="Texture" id=12]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/metroidvania_icons/open-treasure-chest.png" type="Texture" id=13]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/metroidvania_icons/easter-egg.png" type="Texture" id=14]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/metroidvania_icons/battle-gear.png" type="Texture" id=15]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/metroidvania_icons/farmer.png" type="Texture" id=16]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/metroidvania_icons/mighty-force.png" type="Texture" id=17]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/metroidvania_icons/minerals.png" type="Texture" id=18]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/metroidvania_icons/secret-door.png" type="Texture" id=19]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/metroidvania_icons/open-gate.png" type="Texture" id=20]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/metroidvania_icons/boss-key.png" type="Texture" id=21]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/metroidvania_icons/info.png" type="Texture" id=22]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/metroidvania_icons/book-cover.png" type="Texture" id=23]
+[ext_resource path="res://addons/gamelevels_blueprint/icons/metroidvania_icons/load.png" type="Texture" id=24]
 
 [sub_resource type="StyleBoxFlat" id=5]
 content_margin_left = 10.0
@@ -35,9 +53,20 @@ shadow_size = 23
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
+[sub_resource type="StyleBoxFlat" id=8]
+content_margin_left = 2.0
+content_margin_right = 2.0
+content_margin_top = 2.0
+content_margin_bottom = 30.0
+bg_color = Color( 0.0901961, 0.0392157, 0.298039, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color( 1, 1, 1, 1 )
+
 [node name="RoomPanel" type="GraphNode" groups=["room_panel"]]
-margin_right = 189.0
-margin_bottom = 69.0
+margin_right = 243.0
+margin_bottom = 70.0
 focus_mode = 2
 mouse_default_cursor_shape = 13
 custom_styles/frame = SubResource( 5 )
@@ -48,6 +77,12 @@ slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = false
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 5 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -114,6 +149,227 @@ mouse_default_cursor_shape = 2
 custom_styles/focus = SubResource( 4 )
 icon = ExtResource( 3 )
 flat = true
+
+[node name="Control" type="Control" parent="."]
+show_behind_parent = true
+margin_left = 10.0
+margin_top = 69.0
+margin_right = 233.0
+margin_bottom = 69.0
+mouse_filter = 2
+
+[node name="TopPanelIcons" type="PanelContainer" parent="Control"]
+unique_name_in_owner = true
+self_modulate = Color( 0.576471, 0.576471, 0.576471, 0.662745 )
+margin_left = -10.0
+margin_top = -117.0
+margin_right = 26.0
+margin_bottom = -48.0
+mouse_filter = 2
+size_flags_horizontal = 0
+custom_styles/panel = SubResource( 8 )
+
+[node name="HBxTopIcons" type="HBoxContainer" parent="Control/TopPanelIcons"]
+unique_name_in_owner = true
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 142.0
+margin_bottom = 39.0
+mouse_filter = 2
+alignment = 1
+
+[node name="info" type="TextureRect" parent="Control/TopPanelIcons/HBxTopIcons"]
+margin_right = 32.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 22 )
+expand = true
+stretch_mode = 6
+
+[node name="save" type="TextureRect" parent="Control/TopPanelIcons/HBxTopIcons"]
+margin_left = 36.0
+margin_right = 68.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 24 )
+expand = true
+stretch_mode = 6
+
+[node name="skill" type="TextureRect" parent="Control/TopPanelIcons/HBxTopIcons"]
+margin_left = 72.0
+margin_right = 104.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
+
+[node name="key" type="TextureRect" parent="Control/TopPanelIcons/HBxTopIcons"]
+margin_left = 108.0
+margin_right = 140.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+
+[node name="teleport" type="TextureRect" parent="Control/TopPanelIcons/HBxTopIcons"]
+visible = false
+margin_left = 108.0
+margin_right = 140.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 6
+
+[node name="text" type="TextureRect" parent="Control/TopPanelIcons/HBxTopIcons"]
+visible = false
+margin_left = 144.0
+margin_right = 176.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 23 )
+expand = true
+stretch_mode = 6
+
+[node name="boss" type="TextureRect" parent="Control/TopPanelIcons/HBxTopIcons"]
+visible = false
+margin_left = 180.0
+margin_right = 212.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 21 )
+expand = true
+stretch_mode = 6
+
+[node name="entrance" type="TextureRect" parent="Control/TopPanelIcons/HBxTopIcons"]
+visible = false
+margin_left = 216.0
+margin_right = 248.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 20 )
+expand = true
+stretch_mode = 6
+
+[node name="equipment" type="TextureRect" parent="Control/TopPanelIcons/HBxTopIcons"]
+visible = false
+margin_left = 252.0
+margin_right = 284.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 6
+
+[node name="levelup" type="TextureRect" parent="Control/TopPanelIcons/HBxTopIcons"]
+visible = false
+margin_left = 288.0
+margin_right = 320.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 17 )
+expand = true
+stretch_mode = 6
+
+[node name="puzzle" type="TextureRect" parent="Control/TopPanelIcons/HBxTopIcons"]
+visible = false
+margin_left = 324.0
+margin_right = 356.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
+
+[node name="upgrade" type="TextureRect" parent="Control/TopPanelIcons/HBxTopIcons"]
+visible = false
+margin_left = 360.0
+margin_right = 392.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="material" type="TextureRect" parent="Control/TopPanelIcons/HBxTopIcons"]
+visible = false
+margin_left = 396.0
+margin_right = 428.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 6
+
+[node name="secret_area" type="TextureRect" parent="Control/TopPanelIcons/HBxTopIcons"]
+visible = false
+margin_left = 432.0
+margin_right = 464.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 6
+
+[node name="treasure" type="TextureRect" parent="Control/TopPanelIcons/HBxTopIcons"]
+visible = false
+margin_left = 468.0
+margin_right = 500.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 13 )
+expand = true
+stretch_mode = 6
+
+[node name="cinematic" type="TextureRect" parent="Control/TopPanelIcons/HBxTopIcons"]
+visible = false
+margin_left = 504.0
+margin_right = 536.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 6
+
+[node name="easter_egg" type="TextureRect" parent="Control/TopPanelIcons/HBxTopIcons"]
+visible = false
+margin_left = 540.0
+margin_right = 572.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 6
+
+[node name="farm" type="TextureRect" parent="Control/TopPanelIcons/HBxTopIcons"]
+visible = false
+margin_left = 576.0
+margin_right = 608.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 6
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnGoTo" to="." method="_on_BtnGoTo_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnPlay" to="." method="_on_BtnPlay_pressed"]
