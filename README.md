@@ -101,7 +101,7 @@ You can save the blueprint in a lvlmap file. And work with several at the same t
 
 This plugin was made by [Danny Garay](https://twitter.com/dannygaray60)
 
-**Icons made by svgrepo.com**
+**Icons made by svgrepo.com and game-icons.net**
 
 Website
 [https://dannygaray60.github.io/](https://dannygaray60.github.io/)
